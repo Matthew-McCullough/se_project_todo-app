@@ -9,19 +9,24 @@ class FormValidator {
     this._formEl = formEl;
   }
 
-  // TODO - implement all the other methods
+  // TODO - implement all the other methods from validate.js:
 
   _checkInputValidity(inputElement) {
-    // (1) TODO - implement this method after copying over body of function from validate.js:
     if (!inputElement.validity.valid) {
       showInputError(
-        formElement,
+        this._formEl,
         inputElement,
         inputElement.validationMessage,
-        settings
+        this._inputErrorClass,
+        this._errorClass
       );
     } else {
-      hideInputError(formElement, inputElement, settings);
+      hideInputError(
+        this._formEl,
+        inputElement,
+        this._inputErrorClass,
+        this._errorClass
+      );
     }
   }
 

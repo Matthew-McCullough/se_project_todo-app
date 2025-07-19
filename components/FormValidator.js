@@ -11,6 +11,22 @@ class FormValidator {
 
   // TODO - implement all the other methods from validate.js:
 
+  _showInputError(formElement, inputElement, errorMessage) {
+    const errorElementId = `#${inputElement.id}-error`;
+    const errorElement = formElement.querySelector(errorElementId);
+    inputElement.classList.add(this._inputErrorClass);
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add(this._errorClass);
+  }
+
+  _hideInputError(formElement, inputElement) {
+    const errorElementId = `#${inputElement.id}-error`;
+    const errorElement = formElement.querySelector(errorElementId);
+    inputElement.classList.remove(this._inputErrorClass);
+    errorElement.classList.remove(this._errorClass);
+    errorElement.textContent = "";
+  }
+
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(

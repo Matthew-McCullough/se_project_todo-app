@@ -17,10 +17,10 @@ class FormValidator {
         this._formEl,
         inputElement,
         inputElement.validationMessage,
-        this._errorClass
+        this._inputErrorClass
       );
     } else {
-      this._hideInputError(this._formEl, inputElement, this._inputErrorClass);
+      this._hideInputError(this._formEl, inputElement);
     }
   }
 

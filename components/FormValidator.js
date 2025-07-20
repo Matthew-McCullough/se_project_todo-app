@@ -11,11 +11,12 @@ class FormValidator {
 
   // TODO - implement all the other methods from validate.js:
 
-  _showInputError(inputElement, errorClass) {
+  _showInputError(inputElement) {
     const errorElementId = `#${inputElement.id}-error`;
     const errorElement = this._formEl.querySelector(errorElementId);
     inputElement.classList.add(this._inputErrorClass);
-    errorElement.textContent = errorMessage;
+    inputElement.validationMessage =
+      inputElement.validationMessage || "Invalid input";
     errorElement.classList.add(this._errorClass);
   }
 

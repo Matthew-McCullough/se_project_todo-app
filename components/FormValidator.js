@@ -11,7 +11,7 @@ class FormValidator {
 
   // TODO - implement all the other methods from validate.js:
 
-  _showInputError(formElement, inputElement, errorMessage) {
+  _showInputError(inputElement, errorMessage) {
     const errorElementId = `#${inputElement.id}-error`;
     const errorElement = formElement.querySelector(errorElementId);
     inputElement.classList.add(this._inputErrorClass);
@@ -19,7 +19,7 @@ class FormValidator {
     errorElement.classList.add(this._errorClass);
   }
 
-  _hideInputError(formElement, inputElement) {
+  _hideInputError(inputElement) {
     const errorElementId = `#${inputElement.id}-error`;
     const errorElement = formElement.querySelector(errorElementId);
     inputElement.classList.remove(this._inputErrorClass);
@@ -29,7 +29,7 @@ class FormValidator {
 
   _checkInputValidity(inputElement, formEl) {
     if (!inputElement.validity.valid) {
-      this._showInputError(formEl, errorMessage);
+      this._showInputError(formEl, inputElement, errorMessage);
     } else {
       this._hideInputError(formElement, inputElement);
     }
@@ -47,7 +47,7 @@ class FormValidator {
 
     // toggleButtonState(inputList, buttonElement, settings);
 
-    this._inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement, formEl) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
         // toggleButtonState(inputList, buttonElement, settings);

@@ -30,8 +30,11 @@ class FormValidator {
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement);
+      errorElement.textContent = inputElement.validationMessage;
+      errorElement.classList.add(this._errorClass);
     } else {
       this._hideInputError(inputElement);
+      errorElement.classList.remove(this._errorClass);
     }
   }
 

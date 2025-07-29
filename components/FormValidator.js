@@ -9,8 +9,6 @@ class FormValidator {
     this._formEl = formEl;
   }
 
-  // TODO - implement all the other methods from validate.js:
-
   _showInputError(inputElement, errorMessage) {
     const errorElementId = `#${inputElement.id}-error`;
     const errorElement = this._formEl.querySelector(errorElementId);

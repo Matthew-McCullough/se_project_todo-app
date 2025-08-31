@@ -13,7 +13,11 @@ const todosList = document.querySelector(".todos__list");
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
-  handleFormSubmit: () => {},
+  handleFormSubmit: (evt) => {
+    // TPDO - move code from existing submission handler to here
+    console.log(evt.target.name.value);
+    console.log(evt.target.date.value);
+  },
 });
 
 addTodoPopup.setEventListeners();
@@ -34,17 +38,6 @@ const section = new Section({
 });
 
 section.renderItems();
-
-function handleEscClose(evt) {
-  if (evt.key === "Escape") {
-    closeModal(addTodoPopupEl);
-  }
-}
-
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-  document.removeEventListener("keydown", handleEscClose);
-};
 
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();

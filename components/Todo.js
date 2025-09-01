@@ -28,10 +28,6 @@ class Todo {
     this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
   }
 
-  _toggleCompletion = () => {
-    this._completed = !this._completed;
-  };
-
   _remove = () => {
     this._todoElement.remove();
   };

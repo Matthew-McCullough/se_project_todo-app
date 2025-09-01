@@ -23,4 +23,4 @@ The technologies used in this application include HTML5, CSS3 and JavaScript (ES
 
 This project is deployed on GitHub Pages:
 
-- https://github.com/Matthew-McCullough/se_project_todo-app
+- https://matthew-mccullough.github.io/se_project_todo-app/

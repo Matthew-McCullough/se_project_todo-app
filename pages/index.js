@@ -42,7 +42,6 @@ const addTodoPopup = new PopupWithForm({
 
     todoCounter.updateTotal(true);
 
-    addTodoForm.reset();
     newTodoValidator.resetValidation();
     addTodoPopup.close();
   },
@@ -56,12 +55,14 @@ const generateTodo = (data) => {
   return todoElement;
 };
 
+const renderTodo = (item) => {
+  const todo = generateTodo(item);
+  section.addItem(todo);
+};
+
 const section = new Section({
   items: initialTodos,
-  renderer: (item) => {
-    const todo = generateTodo(item);
-    section.addItem(todo);
-  },
+  renderer: renderTodo,
   containerSelector: ".todos__list",
 });
 
